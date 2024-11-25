@@ -375,26 +375,47 @@ function popupContentESN(feature) {
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
         
-        "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
-        "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/exedentes_suelonatural.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
-        "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        // "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
+        // "</div>" +
+
+        "<button onclick='openModal(\"./images/excedentes_suelonatural.png\")'>Ver Imagen</button>" +
+
+        // "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
+        // "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
+        // "    <img src='./images/exedentes_suelonatural.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        // "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
         "  </div>" +
         "</div>"
     )
 };
 
+// // JavaScript para manejar el modal
+// function openModal() {
+//     document.getElementById('imageModal').style.display = 'block';
+// }
+
+// function closeModal() {
+//     document.getElementById('imageModal').style.display = 'none';
+// }
 // JavaScript para manejar el modal
-function openModal() {
-    document.getElementById('imageModal').style.display = 'block';
+function openModal(imageSrc) {
+    const modalContainer = document.getElementById('modalContainer');
+
+    modalContainer.innerHTML = `
+        <div id="imageModal" style="display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+            <div style="text-align:center; position:relative;">
+                <img src="${imageSrc}" alt="Imagen" style="max-width:90%; max-height:80%;" />
+                <br>
+                <button onclick="closeModal()" style="margin-top:10px; padding:10px 20px; background:#fff; border:none; cursor:pointer;">Cerrar</button>
+            </div>
+        </div>
+    `;
 }
 
 function closeModal() {
-    document.getElementById('imageModal').style.display = 'none';
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.innerHTML = ''; // Limpia el modal para cerrarlo
 }
-
 
 
 //// Leyenda
@@ -466,12 +487,6 @@ legend.remove();
 // Escucha el cambio de estado de la capa
 map.on('overlayadd overlayremove', toggleLegend);
 } 
-
-
-
-
-
-
 
 
 
