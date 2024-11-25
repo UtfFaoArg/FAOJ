@@ -87,7 +87,7 @@ var overlayMaps = [
 		]
 	},
 	{
-		group: "Modelos de Cosecha de Agua",
+		group: "Seleccion de Sitios",
 		collapsed: true,
 		layers: [
 			{
@@ -104,9 +104,64 @@ var overlayMaps = [
 				opacity: 0.5,
 			},
 			
+			
 		]
 	},
-	
+	{
+		group: "Modelos de Cosecha Calculados",
+		collapsed: true,
+		layers: [
+			{
+				active: false,
+				name: "Uso Domestico  ",
+				layer: UsoDom,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Seguridad Alimentaria <br> con Sist. Impermeable",
+				layer: SASI,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Seguridad Alimentaria <br> con Suelo Natural",
+				layer: SASN,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Ganadería <br> con Sist. Impermeable",
+				layer: GanaderiaSI,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Ganadería <br> con Suelo Natural",
+				layer: GanaderiaSN,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Excedente de Comercialización <br> con Sist. Impermeable",
+				layer: ExComSI,
+				transparent: true,
+				opacity: 0.5,
+			},
+			{
+				active: false,
+				name: "Excedente de Comercialización <br> con Suelo Natural  <i class='fa fa-boxes' style='color:darkgreen;'></i> ",
+				layer: ExComSN,
+				transparent: true,
+				opacity: 0.5,
+			},
+		]
+	},
 	
 	
 	

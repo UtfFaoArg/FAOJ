@@ -118,15 +118,15 @@ var RegionesHirdo = L.geoJSON(RegionHidrogeografica,
 		 onEachFeature: function (feature, layer) {
 			var content = popupContentRegionHidro(feature);
 			layer.bindPopup(content);
-		}  
-	}  
+		}
+	}
 );
 
 ///Dapto IGN
 var CuencasHidro = L.geoJSON(cuencasSist,
 	// {
 	// 	 style: styleRegionHidro,
-		
+
 	// }
 );
 
@@ -142,7 +142,7 @@ var SitiosSeleccionados = L.geoJSON(sitios,
 		var content = popupContentSitios(feature);
 		layer.bindPopup(content);
 	}
-		
+
 	}
 );
 
@@ -158,7 +158,7 @@ var EstacionesSMN = L.geoJSON(SMN,
 		var content = popupContentSMN(feature);
 		layer.bindPopup(content);
 	}
-		
+
 	}
 );
 
@@ -168,7 +168,7 @@ var SuelosTipo = L.geoJSON(suelos,
 		onEachFeature: function (feature, layer) {
 			var content = popupContentSuelos(feature);
 			layer.bindPopup(content);
-		}  
+		}
 	}
 );
 
@@ -178,7 +178,7 @@ var Ecoregion = L.geoJSON(ecorregion,
 		onEachFeature: function (feature, layer) {
 			var content = popupContentEcoregion(feature);
 			layer.bindPopup(content);
-		}  
+		}
 	}
 );
 var Ecoregion = L.geoJSON(ecorregion,
@@ -187,7 +187,7 @@ var Ecoregion = L.geoJSON(ecorregion,
 		onEachFeature: function (feature, layer) {
 			var content = popupContentEcoregion(feature);
 			layer.bindPopup(content);
-		}  
+		}
 	}
 );
 
@@ -203,7 +203,7 @@ var PuntosAgri = L.geoJSON(agri,
 		var content = popupContentAgri(feature);
 		layer.bindPopup(content);
 	}
-		
+
 	}
 );
 var AreasProtegidas = L.geoJSON(areasprotegidas,
@@ -212,7 +212,7 @@ var AreasProtegidas = L.geoJSON(areasprotegidas,
 		onEachFeature: function (feature, layer) {
 			var content = popupContentAreas(feature);
 			layer.bindPopup(content);
-		}  
+		}
 	}
 );
 
@@ -223,6 +223,108 @@ var DataIso = L.geoJSON(isohietas,
 		onEachFeature: function (feature, layer) {
 			var content = popupContentIso(feature);
 			layer.bindPopup(content);
-		}  
+		}
 	}
 );
+/// Puntos de Modelos de Consecha de Agua - A partir de la Tabla de MAtias Lopez
+// Uso domestico
+var UsoDom = L.geoJSON(datamodelo,
+	{
+		// style: styleUD,
+		onEachFeature: function (feature, layer) {
+			var content = popupContentUD(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconUD
+			})},
+	}
+);
+// Seguridad Alimentaria con Sistema Impermeble
+var SASI = L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentSASI(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconSASI
+			})},
+	}
+);
+// Seguridad Alimentaria con Sistema Suelo Natural
+var SASN = L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentSASN(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconSASN
+			})},
+	}
+);
+// Sistema Ganaderia con Suelo Impermeable
+var GanaderiaSI = L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentGSI(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconGSI
+			})},
+	}
+);
+// Sistema Ganaderia con Suelo Natural
+var GanaderiaSN= L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentGSN(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconGSN
+			})},
+	}
+);
+
+// Sistema Excedentes con Suelo Impermeble
+var ExComSI= L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentESI(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconESI
+			})},
+	}
+);
+
+// Sistema Excedentes con Suelo Natural
+var ExComSN= L.geoJSON(datamodelo,
+	{
+	
+		onEachFeature: function (feature, layer) {
+			var content = popupContentESN(feature);
+			layer.bindPopup(content);
+		},
+		pointToLayer: function(feature, layer) {
+			return L.marker(layer, {
+				icon: IconESN
+			})},
+	}
+);
+
