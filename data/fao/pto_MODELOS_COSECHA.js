@@ -8,9 +8,9 @@ var IconUD = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-    stylePrefix: 'fas', 
-   // spinClass: 'fa-spin',
-   // extraClasses: 'fa-light',  // para que sea light
+    stylePrefix: 'fas',
+    // spinClass: 'fa-spin',
+    // extraClasses: 'fa-light',  // para que sea light
     icon: 'house-user',
     markerColor: 'lightblue',
     iconColor: 'white',
@@ -26,30 +26,33 @@ function popupContentUD(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.UD_VolDem + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.UD_VolDem + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.UD_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.UD_SupCap + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.UD_VolRes +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.UD_VolRes + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
         "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
         "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/uso_domestico.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/uso_domestico.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
+
         "</div>"
     )
 };
@@ -63,7 +66,7 @@ var IconSASI = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
+    // spinClass: 'fa-spin',
     extraClasses: 'fa-light',
     icon: 'seedling',
     markerColor: 'lightgray',
@@ -80,30 +83,34 @@ function popupContentSASI(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.SASI_VolDe + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.SASI_VolDe + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.SASI_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.SASI_SupCa + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.SASI_VolRe +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.SASI_VolRe + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
+
         "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
         "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/segalimentaria_sup_imp.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/segalimentaria_sup_imp.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
+
         "</div>"
     )
 };
@@ -118,7 +125,7 @@ var IconSASN = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
+    // spinClass: 'fa-spin',
     extraClasses: 'fa-light',
     icon: 'seedling',
     markerColor: 'darkgreen',
@@ -127,7 +134,7 @@ var IconSASN = L.AwesomeMarkers.icon({
 // Contenido del popup para Sistema Seguridad Alimentaria - SASN
 function popupContentSASN(feature) {
     return (
-       "<div id='Estilo1'><h3>Seguridad Alimentaria <br> Suelo Natural </h3> </div>" +
+        "<div id='Estilo1'><h3>Seguridad Alimentaria <br> Suelo Natural </h3> </div>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
         "<div id='Estilo3a'>" +
         "<b> Precipitación media : </b>" + feature.properties.precipitac + " mm" + "<br>" + "<br>" +
@@ -135,30 +142,32 @@ function popupContentSASN(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.SASN_VolDe + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.SASN_VolDe + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.SASN_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.SASN_SupCa + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.SASN_VolRe +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.SASN_VolRe + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
         "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
         "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/segalimentaria_suelo_desnudo.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/segalimentaria_suelo_desnudo.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
         "</div>"
     )
 };
@@ -173,8 +182,8 @@ var IconGSI = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
-    extraClasses: 'fa-thin',
+    // spinClass: 'fa-spin',
+    extraClasses: 'fa-solid',
     icon: 'horse',
     markerColor: 'lightgray',
     iconColor: 'white',
@@ -182,7 +191,7 @@ var IconGSI = L.AwesomeMarkers.icon({
 // Contenido del popup para Ganaderia Suelo Impermeable
 function popupContentGSI(feature) {
     return (
-       "<div id='Estilo1'><h3>Modelo de Cosecha para <br> Ganaderia con Suelo Impermable </h3> </div>" +
+        "<div id='Estilo1'><h3>Modelo de Cosecha para <br> Ganaderia con Suelo Impermable </h3> </div>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
         "<div id='Estilo3a'>" +
         "<b> Precipitación media : </b>" + feature.properties.precipitac + " mm" + "<br>" + "<br>" +
@@ -190,33 +199,37 @@ function popupContentGSI(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.GSI_VolDem + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.GSI_VolDem + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.GSI_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.GSI_SupCap + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.GSI_VolRes +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.GSI_VolRes + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
+
         "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
         "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/ganaderia_impremeable.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/ganaderia_impremeable.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
         "</div>"
     )
 };
+
 
 
 //Sist. Ganaderia Suelo Natural
@@ -229,8 +242,8 @@ var IconGSN = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
-    extraClasses: 'fa-thin',
+    // spinClass: 'fa-spin',
+    extraClasses: 'fa-solid',
     icon: 'horse',
     markerColor: 'darkgreen',
     iconColor: 'white',
@@ -238,7 +251,7 @@ var IconGSN = L.AwesomeMarkers.icon({
 // Contenido del popup para Ganaderia Suelo Natural
 function popupContentGSN(feature) {
     return (
-       "<div id='Estilo1'><h3>Modelo de Cosecha para <br> Ganaderia con Suelo Natural </h3> </div>" +
+        "<div id='Estilo1'><h3>Modelo de Cosecha para <br> Ganaderia con Suelo Natural </h3> </div>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
         "<div id='Estilo3a'>" +
         "<b> Precipitación media : </b>" + feature.properties.precipitac + " mm" + "<br>" + "<br>" +
@@ -246,30 +259,33 @@ function popupContentGSN(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.GSN_VolDem + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.GSN_VolDem + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.GSN_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.GSN_SupCap + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.GSN_VolRes +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.GSN_VolRes + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
         "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
         "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/ganaderia_suelodesnudo.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/ganaderia_suelodesnudo.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
+
         "</div>"
     )
 };
@@ -285,7 +301,7 @@ var IconESI = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
+    // spinClass: 'fa-spin',
     extraClasses: 'fa-thin',
     icon: 'boxes',
     markerColor: 'lightgray',
@@ -294,7 +310,7 @@ var IconESI = L.AwesomeMarkers.icon({
 // Contenido del popup Excedente con Suelo Impermable
 function popupContentESI(feature) {
     return (
-       "<div id='Estilo1'><h3>Modelo de Cosecha con <br> Excedentes y Sist. Impermeable</h3> </div>" +
+        "<div id='Estilo1'><h3>Modelo de Cosecha con <br> Excedentes y Sist. Impermeable</h3> </div>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
         "<div id='Estilo3a'>" +
         "<b> Precipitación media : </b>" + feature.properties.precipitac + " mm" + "<br>" + "<br>" +
@@ -302,30 +318,31 @@ function popupContentESI(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.ECSI_VolDe + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.ECSI_VolDe + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.ECSI_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.ECSI_SupCa + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.ECSI_VolRe +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.ECSI_VolRe + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
         //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
         // "<br>" +
         // "<b><i> Fuente de Información:  </b> <br>" +
         // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
-        "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
-        "</div>" +
-        "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        "    <img src='./images/exedentes_impermeables.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
+
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/exedentes_impermeables.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
         "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
         "</div>"
     )
 };
@@ -341,7 +358,7 @@ var IconESN = L.AwesomeMarkers.icon({
     className: 'awesome-marker',
     // prefix: 'glyphicon',
     prefix: 'fa',
-   // spinClass: 'fa-spin',
+    // spinClass: 'fa-spin',
     extraClasses: 'fa-thin',
     icon: 'boxes',
     markerColor: 'darkgreen',
@@ -350,7 +367,7 @@ var IconESN = L.AwesomeMarkers.icon({
 // Contenido del popup Excedente con Suelo Impermable
 function popupContentESN(feature) {
     return (
-       "<div id='Estilo1'><h3>Modelo de Cosecha con <br> Excedentes en Suelos Naturales</h3> </div>" +
+        "<div id='Estilo1'><h3>Modelo de Cosecha con <br> Excedentes en Suelos Naturales</h3> </div>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
         "<div id='Estilo3a'>" +
         "<b> Precipitación media : </b>" + feature.properties.precipitac + " mm" + "<br>" + "<br>" +
@@ -358,64 +375,34 @@ function popupContentESN(feature) {
         "<b> Precipitación calculada :</b>" + feature.properties.ppm75 + " mm" + "<br>" +
         "<i> Precipitación con el 75% de probabilidad de ocurrencia</i>" +
         "<hr class='hrx' align='left' noshade='noshade' size='1' width='100%' />" +
-        "<b> Volumen Consumo : </b>" + feature.properties.ECSN_VolDe + " m3" +"<br>" +
-        "<i> Volumen total consumido para uso doméstico al año </i>" +"<br>" +"<br>" +
-        
+        "<b> Volumen Consumo : </b>" + feature.properties.ECSN_VolDe + " m3" + "<br>" +
+        "<i> Volumen total consumido para uso doméstico al año </i>" + "<br>" + "<br>" +
+
         " <b> VCU : </b>" + feature.properties.ECSN_VCU + " Litros/m2.año" + "<br>" +
-        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" +"<br>" +
+        "<i> Volumen captado unitario por cada metro cuadrado de superficie impermeable</i>" + "<br>" + "<br>" +
 
         "<b> Superficie de Captación : </b>" + feature.properties.ECSN_SupCa + " m2" + "<br>" +
-        "<i> Superficie de captación total </i>" + "<br>" +"<br>" +
+        "<i> Superficie de captación total </i>" + "<br>" + "<br>" +
 
-        " <b> Volumen Reservorio : </b>" + feature.properties.ECSN_VolRe +" m3" +"<br>" +
-        "<i> Volumen adoptado del reservorio </i>" + "<br>" +"<br>" +
+        " <b> Volumen Reservorio : </b>" + feature.properties.ECSN_VolRe + " m3" + "<br>" +
+        "<i> Volumen adoptado del reservorio </i>" + "<br>" + "<br>" +
 
-        //  "<b> Cantidad de Beneficiario: </b>" + feature.properties.CANTIDAD_D + "<br>" +
-        // "<br>" +
-        // "<b><i> Fuente de Información:  </b> <br>" +
-        // "<b> Fecha de actualización:  </b> Mayo 2024  </i>" +
-        
-        // "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
-        // "</div>" +
-
-        "<button onclick='openModal(\"./images/excedentes_suelonatural.png\")'>Ver Imagen</button>" +
-
-        // "<div id='imageModal' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;'>" +
-        // "  <div style='position:relative; top:50%; transform:translateY(-50%); text-align:center;'>" +
-        // "    <img src='./images/exedentes_suelonatural.png' alt='Imagen' style='max-width:90%; max-height:80%;' />" +
-        // "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='openModal()'>Ver Imagen</button>" + // Botón para abrir el modal
+        "</div>" +
+        "<div id='imageModal' style='display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;'>" +
+        "  <div style='position:relative; text-align:center;'>" +
+        "<div style='overflow:hidden; width:90%; max-height:80%; margin:auto; position:relative;'>" +
+        "    <img src='./images/exedentes_suelonatural.png' alt='Imagen' id='zoomImage' style='max-width:100%; cursor:zoom-in;' onclick='enableZoom()'/>" +
+        "    <br><button onclick='closeModal()' style='margin-top:10px;'>Cerrar</button>" +
+        "<button onclick='toggleFullscreen()' style='margin-top:10px; '>Pantalla Completa</button>" +
         "  </div>" +
+        " <br>" +
+
+        "</div>" +
         "</div>"
     )
 };
 
-// // JavaScript para manejar el modal
-// function openModal() {
-//     document.getElementById('imageModal').style.display = 'block';
-// }
-
-// function closeModal() {
-//     document.getElementById('imageModal').style.display = 'none';
-// }
-// JavaScript para manejar el modal
-function openModal(imageSrc) {
-    const modalContainer = document.getElementById('modalContainer');
-
-    modalContainer.innerHTML = `
-        <div id="imageModal" style="display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
-            <div style="text-align:center; position:relative;">
-                <img src="${imageSrc}" alt="Imagen" style="max-width:90%; max-height:80%;" />
-                <br>
-                <button onclick="closeModal()" style="margin-top:10px; padding:10px 20px; background:#fff; border:none; cursor:pointer;">Cerrar</button>
-            </div>
-        </div>
-    `;
-}
-
-function closeModal() {
-    const modalContainer = document.getElementById('modalContainer');
-    modalContainer.innerHTML = ''; // Limpia el modal para cerrarlo
-}
 
 
 //// Leyenda
@@ -432,7 +419,7 @@ function closeModal() {
 function getIconHTML(icon) {
     return '<div style="background-color: #f3f0f067; opacity-color: 0.9 ;display: inline-block; padding: 5px;">' +
         '<i class="fa fa-' + icon.options.icon + '" style="color:' + icon.options.markerColor + '; background-color:' + icon.options.markerColor + ' ; font-size: 24px;"></i>' +
-      
+
         '</div>';
 }
 
@@ -452,8 +439,8 @@ function createLeyendModelos() {
             { label: 'Ganadería con Suelo Natural', iconHTML: getIconHTML(IconGSN) },
             { label: 'Excedentes con Suelo Impermeable', iconHTML: getIconHTML(IconESI) },
             { label: 'Excedentes con Suelo Natural', iconHTML: getIconHTML(IconESN) },
-          
-           
+
+
         ];
 
         // Genera el contenido HTML de la leyenda
@@ -469,24 +456,24 @@ function createLeyendModelos() {
         return div;
     };
 
- // Función para mostrar/ocultar la leyenda
-// Función para mostrar/ocultar la leyenda
-function toggleLegend() {
-    // Revisar si alguna de las capas está activa
-    if (map.hasLayer(UsoDom) || map.hasLayer(ExComSI) || map.hasLayer(ExComSN) || map.hasLayer(GanaderiaSN) || map.hasLayer(GanaderiaSI) || map.hasLayer(SASN) || map.hasLayer(SASI)) {
-        // Si alguna capa está activa, agregar la leyenda
-        legend.addTo(map);
-    } else {
-        // Si ninguna capa está activa, remover la leyenda
-        legend.remove();
+    // Función para mostrar/ocultar la leyenda
+    // Función para mostrar/ocultar la leyenda
+    function toggleLegend() {
+        // Revisar si alguna de las capas está activa
+        if (map.hasLayer(UsoDom) || map.hasLayer(ExComSI) || map.hasLayer(ExComSN) || map.hasLayer(GanaderiaSN) || map.hasLayer(GanaderiaSI) || map.hasLayer(SASN) || map.hasLayer(SASI)) {
+            // Si alguna capa está activa, agregar la leyenda
+            legend.addTo(map);
+        } else {
+            // Si ninguna capa está activa, remover la leyenda
+            legend.remove();
+        }
     }
-}
 
-// Eliminar la leyenda al inicio
-legend.remove();
-// Escucha el cambio de estado de la capa
-map.on('overlayadd overlayremove', toggleLegend);
-} 
+    // Eliminar la leyenda al inicio
+    legend.remove();
+    // Escucha el cambio de estado de la capa
+    map.on('overlayadd overlayremove', toggleLegend);
+}
 
 
 
