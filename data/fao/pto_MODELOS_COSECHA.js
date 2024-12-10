@@ -374,12 +374,12 @@ function createLeyendModelos() {
         var labels = [];
         var styles = [
             { label: 'Uso Doméstico', icon: IconUD.options.iconUrl  },
-            { label: 'Seguridad Alimentaria con Suelo Impermeable', icon: IconSASI.options.iconUrl },
-            { label: 'Seguridad Alimentaria con Suelo Natural', icon: IconSASN.options.iconUrl },
-            { label: 'Ganadería con Suelo Impermeable', icon: IconGSI.options.iconUrl },
-            { label: 'Ganadería con Suelo Natural', icon: IconGSN.options.iconUrl },
-            { label: 'Excedentes con Suelo Impermeable', icon: IconESI.options.iconUrl },
-            { label: 'Excedentes con Suelo Natural', icon: IconESN.options.iconUrl },
+            { label: 'Seguridad Alimentaria ', icon: IconSASI.options.iconUrl },
+           
+            { label: 'Ganadería ', icon: IconGSI.options.iconUrl },
+            // { label: 'Ganadería con Suelo Natural', icon: IconGSN.options.iconUrl },
+            { label: 'Excedentes ', icon: IconESI.options.iconUrl },
+            // { label: 'Excedentes con Suelo Natural', icon: IconESN.options.iconUrl },
         ];
 
         // Genera el contenido HTML de la leyenda
