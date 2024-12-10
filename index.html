@@ -49,7 +49,7 @@
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
 	<!-- complemento awesomeMarker  font-awesome usar prefix: 'fa'-->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-		<!-- complemento awesomeMarker  bootstrap usar prefix: 'glyphicon' ojo! cambia los estilos de todo el html-->
+	<!-- complemento awesomeMarker  bootstrap usar prefix: 'glyphicon' ojo! cambia los estilos de todo el html-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
@@ -338,7 +338,48 @@
 			width: 20px;
 			height: 20px;
 		}
-	
+
+		.custom-marker-gsi {
+			background-color: lightgray;
+			/* Fondo gris */
+			border-radius: 10%;
+			/* Fondo redondeado */
+			width: 40px;
+			/* Ancho del fondo */
+			height: 40px;
+			/* Alto del fondo */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.custom-marker-gsi img {
+			width: 35px;
+			/* Ancho del SVG */
+			height: 35px;
+			/* Alto del SVG */
+		}
+
+		.custom-marker-green {
+			background-color: rgb(177, 214, 170);
+			/* Fondo gris */
+			border-radius: 10%;
+			/* Fondo redondeado */
+			width: 40px;
+			/* Ancho del fondo */
+			height: 40px;
+			/* Alto del fondo */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.custom-marker-green img {
+			width: 35px;
+			/* Ancho del SVG */
+			height: 35px;
+			/* Alto del SVG */
+		}
 	</style>
 </head>
 
@@ -376,7 +417,7 @@
 	</header>
 
 	<div id="map"> </div>
-	
+
 	<div id="modalContainer"></div>
 	<script>
 

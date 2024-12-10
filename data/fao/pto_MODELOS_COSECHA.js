@@ -1,19 +1,25 @@
 //USO DOEMSTICO
-var IconUD = L.AwesomeMarkers.icon({
+var IconUD = L.icon({
+    iconUrl:'images/hogar.png',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    stylePrefix: 'fas',
-    // spinClass: 'fa-spin',
-    // extraClasses: 'fa-light',  // para que sea light
-    icon: 'house-user',
-    markerColor: 'lightblue',
-    iconColor: 'white',
+    className: 'custom-marker-gsi',
+// L.AwesomeMarkers.icon({
+//     iconSize: [35, 45],
+//     iconAnchor: [17, 42],
+//     popupAnchor: [1, -32],
+//     shadowAnchor: [10, 12],
+//     shadowSize: [36, 16],
+//    // className: 'awesome-marker',
+//     // prefix: 'glyphicon',
+//     prefix: 'fa',
+//     stylePrefix: 'fas',
+//     // spinClass: 'fa-spin',
+//     // extraClasses: 'fa-light',  // para que sea light
+//     icon: 'house-user',
+//     markerColor: 'white',
+//     iconColor: 'lightblue',
 });
 // Contenido del popup para Sistema -UD
 function popupContentUD(feature) {
@@ -57,20 +63,13 @@ function popupContentUD(feature) {
     )
 };
 //Sistema Seguridad Alimentaria - SASI
-var IconSASI = L.AwesomeMarkers.icon({
+var IconSASI = L.icon({
+    iconUrl:'images/huerta.png',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-light',
-    icon: 'seedling',
-    markerColor: 'lightgray',
-    iconColor: 'white',
+    className: 'custom-marker-gsi',
+
 });
 // Contenido del popup para Sistema Seguridad Alimentaria - SASI 
 function popupContentSASI(feature) {
@@ -116,20 +115,13 @@ function popupContentSASI(feature) {
 };
 
 //Sistema Seguridad Alimentaria - SASN
-var IconSASN = L.AwesomeMarkers.icon({
+var IconSASN = 
+L.icon({
+    iconUrl:'images/huerta.png',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-light',
-    icon: 'seedling',
-    markerColor: 'darkgreen',
-    iconColor: 'white',
+    className: 'custom-marker-green',
 });
 // Contenido del popup para Sistema Seguridad Alimentaria - SASN
 function popupContentSASN(feature) {
@@ -173,20 +165,13 @@ function popupContentSASN(feature) {
 };
 
 //Sist. Ganaderia Suelo Impermeable
-var IconGSI = L.AwesomeMarkers.icon({
+var IconGSI = L.icon({
+    iconUrl:'images/ganado.svg',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-solid',
-    icon: 'horse',
-    markerColor: 'lightgray',
-    iconColor: 'white',
+    className: 'custom-marker-gsi',
+   
 });
 // Contenido del popup para Ganaderia Suelo Impermeable
 function popupContentGSI(feature) {
@@ -233,20 +218,12 @@ function popupContentGSI(feature) {
 
 
 //Sist. Ganaderia Suelo Natural
-var IconGSN = L.AwesomeMarkers.icon({
+var IconGSN = L.icon({
+    iconUrl:'images/ganado.svg',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-solid',
-    icon: 'horse',
-    markerColor: 'darkgreen',
-    iconColor: 'white',
+    className: 'custom-marker-green',
 });
 // Contenido del popup para Ganaderia Suelo Natural
 function popupContentGSN(feature) {
@@ -292,20 +269,13 @@ function popupContentGSN(feature) {
 
 
 //Sist. Excedentes con Suelo Impermeable
-var IconESI = L.AwesomeMarkers.icon({
+var IconESI = L.icon({
+    iconUrl:'images/vegetales.png',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-thin',
-    icon: 'boxes',
-    markerColor: 'lightgray',
-    iconColor: 'white',
+    className: 'custom-marker-gsi',
+
 });
 // Contenido del popup Excedente con Suelo Impermable
 function popupContentESI(feature) {
@@ -349,20 +319,12 @@ function popupContentESI(feature) {
 
 
 //Sist. Excedentes con Suelo Natural
-var IconESN = L.AwesomeMarkers.icon({
+var IconESN = L.icon({
+    iconUrl:'images/vegetales.png',
     iconSize: [35, 45],
     iconAnchor: [17, 42],
     popupAnchor: [1, -32],
-    shadowAnchor: [10, 12],
-    shadowSize: [36, 16],
-    className: 'awesome-marker',
-    // prefix: 'glyphicon',
-    prefix: 'fa',
-    // spinClass: 'fa-spin',
-    extraClasses: 'fa-thin',
-    icon: 'boxes',
-    markerColor: 'darkgreen',
-    iconColor: 'white',
+    className: 'custom-marker-green',
 });
 // Contenido del popup Excedente con Suelo Impermable
 function popupContentESN(feature) {
@@ -404,27 +366,6 @@ function popupContentESN(feature) {
 };
 
 
-
-//// Leyenda
-// Función para generar el HTML del ícono
-// // Función para generar el HTML del ícono con fondo gris
-// function getIconHTML(icon) {
-//     return '<div style="background-color: #f0f0f0; opacity-color: 0.9 ;display: inline-block; padding: 5px; border-radius: 5px;">' +
-//         '<i class="' + icon.options.icon + ' ' + icon.options.iconColor + '" style="background-color:' + icon.options.markerColor + '">' +
-//         // '<i class="fa ' + icon.options.icon + '" style="background-color:' + icon.options.markerColor + ';"></i>' +
-//         '</i>' +
-//         '</div>';
-// }
-
-function getIconHTML(icon) {
-    return '<div style="background-color: #f3f0f067; opacity-color: 0.9 ;display: inline-block; padding: 5px;">' +
-        '<i class="fa fa-' + icon.options.icon + '" style="color:' + icon.options.markerColor + '; background-color:' + icon.options.markerColor + ' ; font-size: 24px;"></i>' +
-
-        '</div>';
-}
-
-
-
 function createLeyendModelos() {
     var legend = L.control({ position: 'bottomright' });
 
@@ -432,23 +373,22 @@ function createLeyendModelos() {
         var div = L.DomUtil.create('div', 'info legend');
         var labels = [];
         var styles = [
-            { label: 'Uso Doméstico', iconHTML: getIconHTML(IconUD) },
-            { label: 'Seguridad Alimentaria con Suelo Impermeable', iconHTML: getIconHTML(IconSASI) },
-            { label: 'Seguridad Alimentaria con Suelo Natural', iconHTML: getIconHTML(IconSASN) },
-            { label: 'Ganadería con Suelo Impermeable', iconHTML: getIconHTML(IconGSI) },
-            { label: 'Ganadería con Suelo Natural', iconHTML: getIconHTML(IconGSN) },
-            { label: 'Excedentes con Suelo Impermeable', iconHTML: getIconHTML(IconESI) },
-            { label: 'Excedentes con Suelo Natural', iconHTML: getIconHTML(IconESN) },
-
-
+            { label: 'Uso Doméstico', icon: IconUD.options.iconUrl  },
+            { label: 'Seguridad Alimentaria con Suelo Impermeable', icon: IconSASI.options.iconUrl },
+            { label: 'Seguridad Alimentaria con Suelo Natural', icon: IconSASN.options.iconUrl },
+            { label: 'Ganadería con Suelo Impermeable', icon: IconGSI.options.iconUrl },
+            { label: 'Ganadería con Suelo Natural', icon: IconGSN.options.iconUrl },
+            { label: 'Excedentes con Suelo Impermeable', icon: IconESI.options.iconUrl },
+            { label: 'Excedentes con Suelo Natural', icon: IconESN.options.iconUrl },
         ];
 
         // Genera el contenido HTML de la leyenda
         styles.forEach(function (style) {
             labels.push(
-                '<div >' +
-                style.iconHTML + ' ' + style.label +
-                '</div>'
+               `<div style="display: flex; align-items: center; margin-bottom: 5px;">
+                    <img src="${style.icon}" style="width: 20px; height: 20px; margin-right: 8px;" alt="${style.label}">
+                    <span>${style.label}</span>
+                </div>`
             );
         });
 
@@ -456,8 +396,7 @@ function createLeyendModelos() {
         return div;
     };
 
-    // Función para mostrar/ocultar la leyenda
-    // Función para mostrar/ocultar la leyenda
+   // Función para mostrar/ocultar la leyenda
     function toggleLegend() {
         // Revisar si alguna de las capas está activa
         if (map.hasLayer(UsoDom) || map.hasLayer(ExComSI) || map.hasLayer(ExComSN) || map.hasLayer(GanaderiaSN) || map.hasLayer(GanaderiaSI) || map.hasLayer(SASN) || map.hasLayer(SASI)) {
@@ -485,9 +424,12 @@ var datamodelo =
     "name": "pto_MODELOS_COSECHA",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
     "features": [
-        { "type": "Feature", "properties": { "id": 13.0, "x": -66.706694112600005, "y": -23.0709851268, "fna": "Departamento Susques", "nam": "Susques", "NOMBRE_ECO": "Altos Andes", "precipitac": 250.0, "provincia": "Jujuy", "UsoDomesti": "SI", "UD_VolDem": 44.0, "UD_VCU": 109.0, "UD_SupCap": 410.0, "UD_VolRes": 27.0, "SASueloImp": "SI", "SASI_VolDe": 78.0, "SASI_VCU": 114.0, "SASI_SupCa": 880.0, "SASI_VolRe": 60.0, "SASueloNat": "SI", "SASN_VolDe": 78.0, "SASN_VCU": 36.0, "SASN_SupCa": 2800.0, "SASN_VolRe": 60.0, "GSueloInmp": "SI", "GSI_VolDem": 80.0, "GSI_VCU": 114.0, "GSI_SupCap": 850.0, "GSI_VolRes": 60.0, "GSueloNatu": "SI", "GSN_VolDem": 80.0, "GSN_VCU": 36.0, "GSN_SupCap": 2870.0, "GSN_VolRes": 65.0, "ECSueloImp": "NO", "ECSI_VolDe": null, "ECSI_VCU": null, "ECSI_SupCa": null, "ECSI_VolRe": null, "ECSueloNat": "NO", "ECSN_VolDe": null, "ECSN_VCU": null, "ECSN_SupCa": null, "ECSN_VolRe": null, "ppm75": 142.0, "SASI_SupRe": 40.0, "SASI_ProRe": null, "SASN_SupRe": 40.0, "SASN_ProRe": null, "GSI_SupRes": 30.0, "GSI_ProRes": null, "GSN_SupRes": 43.0, "GSN_ProRes": null, "ECSI_SupRe": null, "ECSN_SupRe": null }, "geometry": { "type": "Point", "coordinates": [-66.706694112631453, -23.070985126759865] } },
-        { "type": "Feature", "properties": { "id": 16.0, "x": -65.131072148100003, "y": -24.3745651835, "fna": "Departamento El Carmen", "nam": "El Carmen", "NOMBRE_ECO": "Selva de las Yungas", "precipitac": 700.0, "provincia": "Jujuy", "UsoDomesti": "SI", "UD_VolDem": 57.0, "UD_VCU": 360.0, "UD_SupCap": 160.0, "UD_VolRes": 32.0, "SASueloImp": "SI", "SASI_VolDe": 77.0, "SASI_VCU": 369.0, "SASI_SupCa": 290.0, "SASI_VolRe": 70.0, "SASueloNat": "SI", "SASN_VolDe": 77.0, "SASN_VCU": 115.0, "SASN_SupCa": 900.0, "SASN_VolRe": 70.0, "GSueloInmp": "SI", "GSI_VolDem": 9.93, "GSI_VCU": 369.0, "GSI_SupCap": 32.35, "GSI_VolRes": 7.5, "GSueloNatu": "SI", "GSN_VolDem": 9.93, "GSN_VCU": 115.0, "GSN_SupCap": 102.0, "GSN_VolRes": 7.45, "ECSueloImp": "SI", "ECSI_VolDe": 19.02, "ECSI_VCU": 369.0, "ECSI_SupCa": 6.2, "ECSI_VolRe": 13.65, "ECSueloNat": "SI", "ECSN_VolDe": 19.02, "ECSN_VCU": 369.0, "ECSN_SupCa": 6.2, "ECSN_VolRe": 13.65, "ppm75": 461.0, "SASI_SupRe": 47.0, "SASI_ProRe": 1.5, "SASN_SupRe": 47.0, "SASN_ProRe": 1.5, "GSI_SupRes": 3000.0, "GSI_ProRes": 2.5, "GSN_SupRes": 2.98, "GSN_ProRes": 2.5, "ECSI_SupRe": 5.46, "ECSN_SupRe": 5.46 }, "geometry": { "type": "Point", "coordinates": [-65.131072148143772, -24.374565183537747] } },
-        { "type": "Feature", "properties": { "id": 18.0, "x": -64.300553518800001, "y": -23.977182082, "fna": "Departamento Santa Bárbara", "nam": "Santa Bárbara", "NOMBRE_ECO": "Selva de las Yungas", "precipitac": 856.0, "provincia": "Jujuy", "UsoDomesti": "SI", "UD_VolDem": 53.0, "UD_VCU": 526.0, "UD_SupCap": 105.0, "UD_VolRes": 25.0, "SASueloImp": "SI", "SASI_VolDe": 148.0, "SASI_VCU": 538.0, "SASI_SupCa": 360.0, "SASI_VolRe": 120.0, "SASueloNat": "SI", "SASN_VolDe": 148.0, "SASN_VCU": 303.0, "SASN_SupCa": 600.0, "SASN_VolRe": 115.0, "GSueloInmp": "SI", "GSI_VolDem": 637.0, "GSI_VCU": 538.0, "GSI_SupCap": 142.0, "GSI_VolRes": 340.0, "GSueloNatu": "SI", "GSN_VolDem": 637.0, "GSN_VCU": 303.0, "GSN_SupCap": 2.5, "GSN_VolRes": 340.0, "ECSueloImp": "SI", "ECSI_VolDe": 15.115, "ECSI_VCU": 538.0, "ECSI_SupCa": 3.37, "ECSI_VolRe": 12.6, "ECSueloNat": "SI", "ECSN_VolDe": 15.115, "ECSN_VCU": 303.0, "ECSN_SupCa": 6.0, "ECSN_VolRe": 12.5, "ppm75": 673.0, "SASI_SupRe": 80.0, "SASI_ProRe": null, "SASN_SupRe": 58.0, "SASN_ProRe": null, "GSI_SupRes": 170.0, "GSI_ProRes": null, "GSN_SupRes": 170.0, "GSN_ProRes": null, "ECSI_SupRe": 5.04, "ECSN_SupRe": 5.0 }, "geometry": { "type": "Point", "coordinates": [-64.300553518813942, -23.977182081982612] } },
-        { "type": "Feature", "properties": { "id": 29.0, "x": -64.853715114099998, "y": -24.2002846699, "fna": "Departamento San Pedro", "nam": "San Pedro", "NOMBRE_ECO": "Chaco Seco", "precipitac": 771.0, "provincia": "Jujuy", "UsoDomesti": "SI", "UD_VolDem": 54.0, "UD_VCU": 437.0, "UD_SupCap": 140.0, "UD_VolRes": 21.0, "SASueloImp": "SI", "SASI_VolDe": 136.0, "SASI_VCU": 454.0, "SASI_SupCa": 360.0, "SASI_VolRe": 55.0, "SASueloNat": "SI", "SASN_VolDe": 136.0, "SASN_VCU": 255.0, "SASN_SupCa": 640.0, "SASN_VolRe": 55.0, "GSueloInmp": "SI", "GSI_VolDem": 53.0, "GSI_VCU": 454.0, "GSI_SupCap": 140.0, "GSI_VolRes": 30.0, "GSueloNatu": "SI", "GSN_VolDem": 53.0, "GSN_VCU": 255.0, "GSN_SupCap": 250.0, "GSN_VolRes": 30.0, "ECSueloImp": "SI", "ECSI_VolDe": 13.814, "ECSI_VCU": 454.0, "ECSI_SupCa": 3.65, "ECSI_VolRe": 5.25, "ECSueloNat": "SI", "ECSN_VolDe": 13.814, "ECSN_VCU": 255.0, "ECSN_SupCa": 7.1, "ECSN_VolRe": 4.75, "ppm75": 568.0, "SASI_SupRe": 37.0, "SASI_ProRe": null, "SASN_SupRe": 37.0, "SASN_ProRe": null, "GSI_SupRes": 20.0, "GSI_ProRes": null, "GSN_SupRes": 15.0, "GSN_ProRes": null, "ECSI_SupRe": 2.625, "ECSN_SupRe": 1.9 }, "geometry": { "type": "Point", "coordinates": [-64.853715114148031, -24.200284669853581] } }
+  { "type": "Feature", "properties": { "id": 13.0, "x": -66.699898892767195, "y": -23.0851878819619, "provincia": "Jujuy", "ecoregion": "Altos Andes", "precipitac": 50.0, "depto": "Departamento", "name": "Susques", "NOMBRE_EC": "Altos andes", "Localidad": "El Toro", "precipita": "250.1", "ppm75": "142.4", "TempMedia": "4.4", "Etopromed": "3.53", "UD_VolDem": "44", "UD_VCU": "122", "UD_SupCap": "360", "UD_VolRes": "25", "SASI_VolD": "78", "SASI_VCU": "131", "SASI_SupC": "750", "SASI_VolR": "50", "SASI_SupR": "33.3", "SASI_ProR": "1.5", "SASN_VolD": "78", "SASN_VCU": "41", "SASN_SupC": "2400", "SASN_VolR": "50", "SASN_SupR": "33.3", "SASN_ProR": "1.5", "GSI_VolDe": "80", "GSI_VCU": "131", "GSI_SupCa": "750", "GSI_VolRe": "55", "GSI_SupRe": "28", "GSI_ProRe": "2", "GSN_VolDe": "80", "GSN_VCU": "41", "GSN_SupCa": "2400", "GSN_VolRe": "55", "GSN_SupRe": "36.7", "GSN_ProRe": "1.5", "ECSI_VolD": null, "ECSI_VCU": null, "ECSI_SupC": null, "ECSI_VolR": null, "ECSI_SupR": null, "ECSI_ProR": null, "ECSN_VolD": null, "ECSN_VCU": null, "ECSN_SupC": null, "ECSN_VolR": null, "ECSN_SupR": null, "ECSN_PorR": null }, "geometry": { "type": "Point", "coordinates": [ -66.699898892767195, -23.0851878819619, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": 16.0, "x": -65.132061106993902, "y": -24.3741421797864, "provincia": "Jujuy", "ecoregion": "Selva de las Yungas", "precipitac": 2000.0, "depto": "Departamento", "name": "El Carmen", "NOMBRE_EC": "Selva de las Yungas", "Localidad": "Perico", "precipita": "699.86", "ppm75": "461.1", "TempMedia": "17.2", "Etopromed": "3.86", "UD_VolDem": "57", "UD_VCU": "471", "UD_SupCap": "125", "UD_VolRes": "30", "SASI_VolD": "77", "SASI_VCU": "483", "SASI_SupC": "210", "SASI_VolR": "60", "SASI_SupR": "40", "SASI_ProR": "1.5", "SASN_VolD": "77", "SASN_VCU": "151", "SASN_SupC": "670", "SASN_VolR": "60", "SASN_SupR": "40", "SASN_ProR": "1.5", "GSI_VolDe": "9930", "GSI_VCU": "483", "GSI_SupCa": "24000", "GSI_VolRe": "6700", "GSI_SupRe": "2680", "GSI_ProRe": "2.5", "GSN_VolDe": "9930", "GSN_VCU": "151", "GSN_SupCa": "77000", "GSN_VolRe": "6800", "GSN_SupRe": "2720", "GSN_ProRe": "2.5", "ECSI_VolD": "19020", "ECSI_VCU": "483", "ECSI_SupC": "4.6", "ECSI_VolR": "13000", "ECSI_SupR": "5200", "ECSI_ProR": "2.5", "ECSN_VolD": "19020", "ECSN_VCU": "151", "ECSN_SupC": "14.5", "ECSN_VolR": "12500", "ECSN_SupR": "5000", "ECSN_PorR": "2.5" }, "geometry": { "type": "Point", "coordinates": [ -65.132061106993902, -24.3741421797864, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": 18.0, "x": -64.298233363043906, "y": -23.976997682270301, "provincia": "Jujuy", "ecoregion": "Selva de las Yungas", "precipitac": 2000.0, "depto": "Departamento", "name": "Santa Bárbara", "NOMBRE_EC": "Selva de las Yungas", "Localidad": "Palma Sola", "precipita": "855.5542627", "ppm75": "821", "TempMedia": "19.7", "Etopromed": "3.52", "UD_VolDem": "53.1", "UD_VCU": "645", "UD_SupCap": "90", "UD_VolRes": "25", "SASI_VolD": "147", "SASI_VCU": "657", "SASI_SupC": "320", "SASI_VolR": "110", "SASI_SupR": "73.3", "SASI_ProR": "1.5", "SASN_VolD": "148", "SASN_VCU": "370", "SASN_SupC": "500", "SASN_VolR": "115", "SASN_SupR": "57.5", "SASN_ProR": "2", "GSI_VolDe": "637", "GSI_VCU": "657", "GSI_SupCa": "1150", "GSI_VolRe": "330", "GSI_SupRe": "165", "GSI_ProRe": "2", "GSN_VolDe": "637", "GSN_VCU": "370", "GSN_SupCa": "2050", "GSN_VolRe": "340", "GSN_SupRe": "170", "GSN_ProRe": "2", "ECSI_VolD": "15115", "ECSI_VCU": "657", "ECSI_SupC": "2.85", "ECSI_VolR": "12500", "ECSI_SupR": "5000", "ECSI_ProR": "2.5", "ECSN_VolD": "15115", "ECSN_VCU": "370", "ECSN_SupC": "5", "ECSN_VolR": "12500", "ECSN_SupR": "5000", "ECSN_PorR": "2.5" }, "geometry": { "type": "Point", "coordinates": [ -64.298233363043906, -23.976997682270301, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": 29.0, "x": -64.852652244119696, "y": -24.2001618574186, "provincia": "Jujuy", "ecoregion": "Chaco Seco", "precipitac": 500.0, "depto": "Departamento", "name": "San Pedro", "NOMBRE_EC": "Chaco Seco", "Localidad": "San Pedro", "precipita": "771.4", "ppm75": "737", "TempMedia": "18.7", "Etopromed": "3.09", "UD_VolDem": "54", "UD_VCU": "578", "UD_SupCap": "100", "UD_VolRes": "25", "SASI_VolD": "136", "SASI_VCU": "590", "SASI_SupC": "260", "SASI_VolR": "55", "SASI_SupR": "36.7", "SASI_ProR": "1.5", "SASN_VolD": "136", "SASN_VCU": "332", "SASN_SupC": "470", "SASN_VolR": "55", "SASN_SupR": "36.7", "SASN_ProR": "1.5", "GSI_VolDe": "53", "GSI_VCU": "590", "GSI_SupCa": "110", "GSI_VolRe": "30", "GSI_SupRe": "20", "GSI_ProRe": "1.5", "GSN_VolDe": "53", "GSN_VCU": "332", "GSN_SupCa": "185", "GSN_VolRe": "30", "GSN_SupRe": "15", "GSN_ProRe": "2", "ECSI_VolD": "13814", "ECSI_VCU": "590", "ECSI_SupC": "2.7", "ECSI_VolR": "5200", "ECSI_SupR": "2600", "ECSI_ProR": "2", "ECSN_VolD": "13814", "ECSN_VCU": "332", "ECSN_SupC": "4.5", "ECSN_VolR": "5200", "ECSN_SupR": "2080", "ECSN_PorR": "2.5" }, "geometry": { "type": "Point", "coordinates": [ -64.852652244119696, -24.2001618574186, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": 35.0, "x": -65.463236071587701, "y": -22.132691734302199, "provincia": "Jujuy", "ecoregion": "Puna", "precipitac": 100.0, "depto": "Departamento", "name": "Yavi", "NOMBRE_EC": null, "Localidad": null, "precipita": null, "ppm75": null, "TempMedia": null, "Etopromed": null, "UD_VolDem": null, "UD_VCU": null, "UD_SupCap": null, "UD_VolRes": null, "SASI_VolD": null, "SASI_VCU": null, "SASI_SupC": null, "SASI_VolR": null, "SASI_SupR": null, "SASI_ProR": null, "SASN_VolD": null, "SASN_VCU": null, "SASN_SupC": null, "SASN_VolR": null, "SASN_SupR": null, "SASN_ProR": null, "GSI_VolDe": null, "GSI_VCU": null, "GSI_SupCa": null, "GSI_VolRe": null, "GSI_SupRe": null, "GSI_ProRe": null, "GSN_VolDe": null, "GSN_VCU": null, "GSN_SupCa": null, "GSN_VolRe": null, "GSN_SupRe": null, "GSN_ProRe": null, "ECSI_VolD": null, "ECSI_VCU": null, "ECSI_SupC": null, "ECSI_VolR": null, "ECSI_SupR": null, "ECSI_ProR": null, "ECSN_VolD": null, "ECSN_VCU": null, "ECSN_SupC": null, "ECSN_VolR": null, "ECSN_SupR": null, "ECSN_PorR": null }, "geometry": { "type": "Point", "coordinates": [ -65.463236071587701, -22.132691734302199, 0.0 ] } },
+{ "type": "Feature", "properties": { "id": 36.0, "x": -65.4300184157118, "y": -23.654420630914, "provincia": "Jujuy", "ecoregion": "Monte de Sierras y Bolsones", "precipitac": 400.0, "depto": "Departamento", "name": "Tilcara", "NOMBRE_EC": null, "Localidad": null, "precipita": null, "ppm75": null, "TempMedia": null, "Etopromed": null, "UD_VolDem": null, "UD_VCU": null, "UD_SupCap": null, "UD_VolRes": null, "SASI_VolD": null, "SASI_VCU": null, "SASI_SupC": null, "SASI_VolR": null, "SASI_SupR": null, "SASI_ProR": null, "SASN_VolD": null, "SASN_VCU": null, "SASN_SupC": null, "SASN_VolR": null, "SASN_SupR": null, "SASN_ProR": null, "GSI_VolDe": null, "GSI_VCU": null, "GSI_SupCa": null, "GSI_VolRe": null, "GSI_SupRe": null, "GSI_ProRe": null, "GSN_VolDe": null, "GSN_VCU": null, "GSN_SupCa": null, "GSN_VolRe": null, "GSN_SupRe": null, "GSN_ProRe": null, "ECSI_VolD": null, "ECSI_VCU": null, "ECSI_SupC": null, "ECSI_VolR": null, "ECSI_SupR": null, "ECSI_ProR": null, "ECSN_VolD": null, "ECSN_VCU": null, "ECSN_SupC": null, "ECSN_VolR": null, "ECSN_SupR": null, "ECSN_PorR": null }, "geometry": { "type": "Point", "coordinates": [ -65.4300184157118, -23.654420630914, 0.0 ] } }
+
     ]
 }
